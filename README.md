@@ -16,15 +16,15 @@
 El proyecto implementa **Arquitectura Limpia**, organizada en 4 capas concéntricas:
 
 src/
-├── domain/             # CAPA 1: Reglas de negocio puras (Entidades e Interfaces).
-│                       # Es independiente de frameworks y bases de datos.
-├── application/        # CAPA 2: Casos de Uso. Orquestación de la lógica.
-│                       # (Ej: Crear Tarea, Registrar Usuario).
-├── infrastructure/     # CAPA 3: Herramientas externas. Implementación de Firestore.
-│                       # Aquí se conectan los servicios reales.
-├── presentation/       # CAPA 4: Punto de entrada. Controladores, Rutas y Middleware.
-│                       # Gestiona las peticiones HTTP y respuestas.
-└── types/              # Tipados globales y extensiones de Express.
+├── domain/         # CAPA 1: Núcleo del negocio (Entidades e Interfaces de Repositorio)
+│                   # Es agnóstica a la base de datos o el framework.
+├── application/    # CAPA 2: Casos de Uso (Lógica de orquestación)
+│                   # Define qué hace el sistema (ej: "RegisterUser", "CreateTask").
+├── infrastructure/ # CAPA 3: Implementaciones técnicas (Firestore, Repositorios)
+│                   # Aquí reside la conexión real con Firebase y servicios externos.
+├── presentation/   # CAPA 4: Controladores, Rutas y Middlewares
+│                   # Gestiona el protocolo HTTP, validación de entrada y respuestas.
+└── types/          # Definiciones globales de TypeScript y extensiones.
 
 ## Autorización y Seguridad
 La seguridad se basa en JSON Web Tokens (JWT):
