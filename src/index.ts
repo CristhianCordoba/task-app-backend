@@ -7,7 +7,7 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:4200',
-  'https://task-app-backend-yckj.onrender.com' 
+  'https://task-app-dnfj.onrender.com' 
 ];
 
 app.use(cors({
