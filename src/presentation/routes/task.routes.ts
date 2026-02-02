@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { TaskController } from '../controllers/TaskController';
-import { authMiddleware } from '../../middlewares/auth.middleware';
+import { authMiddleware } from '../middlewares/auth.middleware';
 import { CreateTask } from '../../application/use-cases/CreateTask';
 import { GetTasks } from '../../application/use-cases/GetTasks';
 import { UpdateTask } from '../../application/use-cases/UpdateTask';

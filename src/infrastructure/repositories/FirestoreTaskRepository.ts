@@ -60,7 +60,7 @@ export class FirestoreTaskRepository implements TaskRepository {
     if (task.completed !== undefined) updateData.completed = task.completed;
 
     if (Object.keys(updateData).length === 0) {
-      throw new Error('No valid fields to update');
+      throw new Error('NO hay campos para actualizar');
     }
 
     await docRef.update(updateData);
