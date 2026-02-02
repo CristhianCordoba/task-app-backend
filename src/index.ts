@@ -5,11 +5,20 @@ import taskRoutes from './presentation/routes/task.routes';
 
 const app = express();
 
+const allowedOrigins = [
+  'http://localhost:4200',
+  'https://task-app.stackblitz.io' 
+];
+
 app.use(cors({
-  origin: [
-    'http://localhost:4200',
-    'https://task-app-backend.stackblitz.io'
-  ],
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
@@ -19,8 +28,8 @@ app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/tasks', taskRoutes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
-app.listen(PORT, () => {
-  console.log(`API running on port ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
