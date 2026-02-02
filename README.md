@@ -15,17 +15,11 @@
 ## Estructura del Proyecto (Clean Architecture)
 El proyecto implementa **Arquitectura Limpia**, organizada en 4 capas concéntricas:
 
-src/
-├── domain/           # CAPA 1: Reglas de negocio puras (Entidades e Interfaces)
-│   └── repositories/ # Contratos que definen cómo se accede a los datos
-├── application/      # CAPA 2: Casos de Uso (Orquestación de la lógica)
-│   └── use-cases/    # Ej: CreateTask.ts, LoginUser.ts
-├── infrastructure/   # CAPA 3: Herramientas externas e implementaciones
-│   └── persistence/  # Implementación real de Firestore (Repositores)
-├── presentation/     # CAPA 4: Punto de entrada (Controladores y Rutas)
-│   ├── controllers/  # Manejo de req y res
-│   └── routes/       # Definición de endpoints Express
-└── types/            # Tipados globales y extensiones de Express
+Capa,Responsabilidad,Descripción
+1. Domain,Reglas de Negocio,Contiene las Entidades e Interfaces. Es la capa más pura; no depende de librerías externas ni del framework.
+2. Application,Casos de Uso,Orquestación de la lógica. Define acciones específicas como Crear Tarea o Registrar Usuario.
+3. Infrastructure,Herramientas Externas,"Implementaciones técnicas: conexión con Firestore, configuración de Firebase y repositorios de datos."
+4. Presentation,Punto de Entrada,"Controladores de Express, definición de Rutas y Middlewares de seguridad/validación."
 
 ## Autorización y Seguridad
 La seguridad se basa en JSON Web Tokens (JWT):
