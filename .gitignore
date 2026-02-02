@@ -3,3 +3,6 @@ node_modules/
 
 # Archivos de bloqueo
 package-lock.json
+
+#clave de bd
+serviceAccountKey.json
