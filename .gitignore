@@ -6,3 +6,7 @@ package-lock.json
 
 #clave de bd
 serviceAccountKey.json
+
+# Distribuciones
+dist/
+build/
